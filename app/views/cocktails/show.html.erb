@@ -1,0 +1,10 @@
+<h1><%= @cocktail.name %></h1>
+<% @cocktail.doses.each do |dose| %>
+  <%= dose.ingredient.name %>
+<% end %>
+  <%= simple_form_for [@cocktail, @dose] do |f| -%>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit "create a dose" %>
+  <% end %>
+
