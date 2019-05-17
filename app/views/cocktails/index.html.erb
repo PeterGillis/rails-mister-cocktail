@@ -1,17 +1,18 @@
 
 <div class="container">
-  <h1><i class="fas fa-cocktail"></i></h1>
-  <h1>Peter's Cocktail maker</h1>
-  <h2>List of cocktails:</h2>
-    <ul>
-      <% @cocktails.each do |cocktail| %>
-      <li>
-        <%= link_to cocktail.name, cocktail_path(cocktail)%>
-        <%= link_to "Delete Cocktail", cocktail_path(cocktail),
-          method: :delete,
-          data: { confirm: "are you sure?" } %>
-     </li>
-  <% end %>
-</ul>
-  <%= link_to "add a cocktail", new_cocktail_path %>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-md-4">
+        <div>
+          <%= link_to cocktail.name, cocktail_path(cocktail)%>
+          <%= link_to "⨯", cocktail_path(cocktail),
+            method: :delete,
+            data: { confirm: "are you sure?" } %>
+        </div>
+        <img src="https://bit.ly/2VyMyUy" width="200" alt="glass">
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "add a cocktail", new_cocktail_path, class: "btn btn-warning"%>
 </div>
